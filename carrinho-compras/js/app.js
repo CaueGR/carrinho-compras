@@ -1,3 +1,6 @@
+let total = 0;
+limpar();
+
 function adicionar(){
 //recuperar valores nome do produto, quantidade e valor
 let produto = document.getElementById('produto').value;
@@ -18,8 +21,15 @@ carrinho.innerHTML = carrinho.innerHTML + ` <section class="carrinho__produtos" 
         </section>
       </section>`
 //atualizar o valor total
+total += preco;
+let campoTotal = document.getElementById('valor-total');
+campoTotal.textContent = `R$ ${total}`;
+document.getElementById('quantidade').value = 0;
+
 }
 
 function limpar(){
-
+ total = 0;
+document.getElementById('lista-produtos').innerHTML = '';
+document.getElementById('valor-total').textContent = 'R$ 0';
 }
